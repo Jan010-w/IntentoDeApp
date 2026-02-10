@@ -53,12 +53,15 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*','**/gradle-wrapper.properties') }}
 
-      - name: Build Debug APK
+      - name: Build Debug APK (module :app)
         run: |
+          # build the app module explicitly to avoid 'Task assembleDebug not found in root project' errors
           if [ -f ./gradlew ]; then
-            ./gradlew assembleDebug --no-daemon
+            echo "Using gradle wrapper to build :app:assembleDebug"
+            ./gradlew :app:assembleDebug --no-daemon
           else
-            gradle assembleDebug --no-daemon
+            echo "Gradle wrapper not found; using system gradle to build :app:assembleDebug"
+            gradle :app:assembleDebug --no-daemon
           fi
         shell: bash
 
