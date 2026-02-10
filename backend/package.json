@@ -1,0 +1,33 @@
+{
+  "name": "intento-backend",
+  "version": "1.0.0",
+  "description": "Backend para IntentoDeApp - Servidor de IA y API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "intento",
+    "tasks",
+    "ai",
+    "assistant"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "openai": "^4.20.0",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0"
+  }
+}

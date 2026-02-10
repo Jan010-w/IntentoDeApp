@@ -1,0 +1,96 @@
+# Gradle
+.gradle/
+build/
+.gradle
+gradlew
+gradlew.bat
+
+# Android
+.idea/
+.DS_Store
+*.iml
+*.apk
+*.ap_
+*.dex
+.classpath
+.project
+.properties
+bin/
+gen/
+local.properties
+.settings/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Backend
+backend/node_modules/
+backend/.env
+backend/dist/
+backend/npm-debug.log
+backend/.env.local
+
+# IDE
+.idea/
+*.iws
+*.ipr
+out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Dependencies
+node_modules/
+bower_components/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Build output
+dist/
+build/
+out/
+
+# Sensitive files
+*.key
+*.pem
+*.key.pub
+secrets.properties
+
+# IDE Specific
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Android specific
+*.keystore
+key.properties
+
+# Generated files
+.gen/
+generated/
