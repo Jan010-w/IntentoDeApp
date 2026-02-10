@@ -33,8 +33,17 @@ jobs:
           sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-34" "build-tools;34.0.0"
         shell: bash
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      - name: Ensure Gradle available (use wrapper if present else install)
+        run: |
+          if [ -f ./gradlew ]; then
+            chmod +x ./gradlew
+            echo "Using Gradle wrapper"
+          else
+            echo "Gradle wrapper not found; installing gradle via apt"
+            sudo apt-get update
+            sudo apt-get install -y gradle
+          fi
+        shell: bash
 
       - name: Cache Gradle
         uses: actions/cache@v4
@@ -45,7 +54,13 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*','**/gradle-wrapper.properties') }}
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon
+        run: |
+          if [ -f ./gradlew ]; then
+            ./gradlew assembleDebug --no-daemon
+          else
+            gradle assembleDebug --no-daemon
+          fi
+        shell: bash
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
